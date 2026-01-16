@@ -1,0 +1,12 @@
+<div class="movement-container">
+  <div class="movement-title">MOVEMENT</div>
+  <div class="movement-fields">
+    <div class="movement-field" *ngFor="let movement of movements">
+      <label>{{ movement.label }}</label>
+      <div class="input-wrapper">
+        <input type="number" [(ngModel)]="movement.value" placeholder="0">
+        <span class="unit">ft.</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.senses-container {
+    padding: 1.5rem;
+    background-color: #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    width: 75%;
+}
+
+.vision-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vision-field label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #f2f2f2;
+}
+
+.vision-field input {
+    border: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    background: transparent;
+    color: #f2f2f2;
+    resize: none;
+    flex: 1;
+}
+
+.vision-field input:focus {
+    outline: none;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.bottom-fields {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.inspiration-field,
+.exhaustion-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.inspiration-field label,
+.exhaustion-field label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #f2f2f2;
+}
+
+.inspiration-field input,
+.exhaustion-field input {
+    border: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
+    background: transparent;
+    color: #f2f2f2;
+}
+
+.inspiration-field input:focus,
+.exhaustion-field input:focus {
+    outline: none;
+    border-bottom: 2px solid #f2f2f2;
+}

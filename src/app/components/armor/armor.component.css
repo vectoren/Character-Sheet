@@ -1,0 +1,95 @@
+.armor-container {
+    padding: 1.5rem;
+    background-color: #2a2a2a;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.armor-header {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.armor-name-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.armor-name-field label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #f2f2f2;
+}
+
+.armor-name-field input {
+    border: none;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    background: transparent;
+    color: #f2f2f2;
+}
+
+.armor-name-field input:focus {
+    outline: none;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.ac-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #f2f2f2;
+    padding: 1rem 1.5rem;
+    background-color: #1d1d1d;
+    border-radius: 4px;
+}
+
+.ac-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #f2f2f2;
+}
+
+.ac-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f2f2f2;
+}
+
+.toggles-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.45rem;
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toggle-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #f2f2f2;
+}
+
+.toggle-row label {
+    font-size: 0.95rem;
+    color: #f2f2f2;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-row label:hover {
+    color: #d0d0d0;
+}

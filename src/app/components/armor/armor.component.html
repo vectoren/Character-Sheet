@@ -1,0 +1,23 @@
+<div class="armor-container">
+  <div class="armor-header">
+    <div class="armor-name-field">
+      <label>ARMOR</label>
+      <input type="text" [(ngModel)]="armorName" placeholder="Enter armor name">
+    </div>
+    <div class="ac-display">
+      <span class="ac-label">AC</span>
+      <span class="ac-value">{{ totalAC }}</span>
+    </div>
+  </div>
+
+  <div class="toggles-section">
+    <div class="toggle-row">
+      <input type="checkbox" id="shield" [(ngModel)]="hasShield">
+      <label for="shield">Shield (+2 AC)</label>
+    </div>
+    <div class="toggle-row">
+      <input type="checkbox" id="stealth" [(ngModel)]="stealthDisadvantage">
+      <label for="stealth">Stealth Disadvantage</label>
+    </div>
+  </div>
+</div>

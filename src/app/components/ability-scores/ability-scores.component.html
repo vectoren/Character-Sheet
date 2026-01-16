@@ -1,0 +1,15 @@
+<div class="abilities-container">
+    <div class="ability-box" *ngFor="let ability of abilities">
+        <span class="ability-name">{{ ability.name }}</span>
+        <div class="ability-content">
+            <span class="modifier">{{ getModifier(ability.score) > 0 ? '+' : '' }}{{ getModifier(ability.score)}}</span>
+            <div class="score-controls">
+                <span class="score">{{ ability.score }}</span>
+                <div>
+                    <button class="btn-increase" (click)="increaseScore(ability)">+</button>
+                    <button class="btn-decrease" (click)="decreaseScore(ability)">−</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

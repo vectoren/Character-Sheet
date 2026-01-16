@@ -1,0 +1,84 @@
+.abilities-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ability-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 100px;
+}
+
+.ability-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #f2f2f2;
+    text-align: center;
+    width: 100px;
+}
+
+.ability-content {
+    border: 2px solid #f2f2f2;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #2a2a2a;
+}
+
+.modifier {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #f2f2f2;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.score-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    justify-content: center;
+}
+
+.btn-decrease,
+.btn-increase {
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    color: #f2f2f2;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-decrease:hover,
+.btn-increase:hover {
+    background-color: #f2f2f2;
+    color: #2a2a2a;
+}
+
+.btn-decrease:active,
+.btn-increase:active {
+    transform: scale(0.95);
+}

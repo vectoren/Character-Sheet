@@ -1,0 +1,46 @@
+<div class="health-container">
+    <div class="health-header">
+        <div class="health-hp-section">
+            <div class="hp-field">
+                <label>CURRENT HP</label>
+                <input type="number" [(ngModel)]="currentHP" placeholder="0">
+            </div>
+            <span class="hp-separator">/</span>
+            <div class="hp-field">
+                <label>MAX HP</label>
+                <input type="number" [(ngModel)]="maxHP" placeholder="0">
+            </div>
+        </div>
+    </div>
+    <div class="additional">
+        <div class="additional-section">
+            <div class="temp-hp-field">
+                <label>TEMPORARY HP</label>
+                <input type="number" [(ngModel)]="temporaryHP" placeholder="0">
+            </div>
+            <div class="hit-dice-field">
+                <label>HIT DICE</label>
+                <input type="text" [(ngModel)]="hitDice" placeholder="e.g. 1d8">
+            </div>
+        </div>
+
+        <div class="death-saves-section">
+            <div class="death-saves-group">
+                <div class="death-saves-label">SUCCEEDED SAVES</div>
+                <div class="checkboxes-row">
+                    <input type="checkbox" [(ngModel)]="succeededDeathSaves[0]" id="success1">
+                    <input type="checkbox" [(ngModel)]="succeededDeathSaves[1]" id="success2">
+                    <input type="checkbox" [(ngModel)]="succeededDeathSaves[2]" id="success3">
+                </div>
+            </div>
+            <div class="death-saves-group">
+                <div class="death-saves-label">FAILED SAVES</div>
+                <div class="checkboxes-row">
+                    <input type="checkbox" [(ngModel)]="failedDeathSaves[0]" id="fail1">
+                    <input type="checkbox" [(ngModel)]="failedDeathSaves[1]" id="fail2">
+                    <input type="checkbox" [(ngModel)]="failedDeathSaves[2]" id="fail3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

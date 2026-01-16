@@ -8,7 +8,7 @@
             <div class="level-inputs">
                 <div class="level-field">
                     <span class="level-label">LEVEL</span>
-                    <input type="text" placeholder="1">
+                    <input type="number" [(ngModel)]="characterLevel" min="1" max="20">
                 </div>
                 <div class="class-field">
                     <span class="class-label">CLASS</span>
@@ -20,9 +20,9 @@
                 </div>
             </div>
         </div>
-        <div class="experience-section">
-            <span class="experience-label">EXPERIENCE</span>
-            <span class="experience-value">0</span>
+        <div class="proficiency-section">
+            <span class="proficiency-label">PROFICIENCY</span>
+            <span class="proficiency-value">+{{proficiency}}</span>
         </div>
     </div>
     <div class="details-row">

@@ -1,0 +1,19 @@
+<div class="skills-container">
+    <div class="skills-label">SKILLS</div>
+    <div class="skills-list">
+        <div class="skill-row" *ngFor="let skill of skills; let even = even" [class.even-row]="even">
+            <div class="skill-toggles">
+                <button class="toggle-btn proficiency-btn" [class.active]="skill.proficient"
+                    [class.expert-active]="skill.expert" (click)="toggleProficiency(skill)"
+                    [title]="'Proficient'"></button>
+                <button class="toggle-btn expert-btn" [class.active]="skill.expert" (click)="toggleExpert(skill)" [title]="'Expert'"></button>
+            </div>
+            <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-ability">({{ skill.ability }})</span>
+            </div>
+            <span class="skill-modifier">{{ getSkillModifier(skill) > 0 ? '+' : '' }}{{ getSkillModifier(skill) }}</span>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,110 @@
+.skills-container {
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2a2a2a;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1rem;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s ease;
+}
+
+.skill-row:hover {
+    background-color: #333333;
+}
+
+.skill-row.even-row {
+    background-color: #333333;
+}
+
+.skill-toggles {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    position: relative;
+    min-width: 50px;
+}
+
+.toggle-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #f2f2f2;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f2f2f2;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.toggle-btn:hover {
+    background-color: #f2f2f2;
+    color: #2a2a2a;
+}
+
+.proficiency-btn.active::after {
+    content: '●';
+    font-size: 0.9rem;
+}
+
+.expert-btn.active::after {
+    content: '●●';
+    font-size: 0.7rem;
+}
+
+.expert-btn {
+    margin-left: -12px;
+    z-index: 1;
+}
+
+.skill-info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex: 1;
+}
+
+.skill-name {
+    font-weight: bold;
+    color: #f2f2f2;
+    font-size: 1rem;
+}
+
+.skill-ability {
+    color: #b0b0b0;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.skill-modifier {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f2f2f2;
+    min-width: 40px;
+    text-align: center;
+}
+
+.skills-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #f2f2f2;
+    text-align: center;
+    margin-bottom: 1rem;
+}

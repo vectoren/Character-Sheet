@@ -1,0 +1,37 @@
+.main-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.equipment-proficiencies-container {
+    display: flex;
+    gap: 0.5rem;
+    height: 100%;
+}
+
+.equipment-proficiencies-container app-equipment {
+    flex: 0 0 75%;
+}
+
+.equipment-proficiencies-container app-proficiencies {
+    flex: 0 0 25%;
+}
+
+.miscellaneous-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.miscellaneous {
+    display: flex;
+    gap: 0.5rem;
+}
+

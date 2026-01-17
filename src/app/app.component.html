@@ -1,1 +1,20 @@
-<app-basic-info></app-basic-info>
+<app-basic-info #basicInfo></app-basic-info>
+<app-ability-scores #abilityScores></app-ability-scores>
+<div class="main-container">
+    <app-skills [proficiencyBonus]="basicInfo.proficiency" [abilityModifiers]="abilityScores.getAbilityModifiers()"></app-skills>
+    <div class="right-section">
+        <div class="miscellaneous-container">
+            <div class="miscellaneous">
+                <app-armor></app-armor>
+                <app-movement></app-movement>
+                <app-health></app-health>
+                <app-senses></app-senses>
+            </div>
+            <app-attacks [abilityModifiers]="abilityScores.getAbilityModifiers()" [proficiency]="basicInfo.proficiency"></app-attacks>
+        </div>
+        <div class="equipment-proficiencies-container">
+            <app-equipment></app-equipment>
+            <app-proficiencies></app-proficiencies>
+        </div>
+    </div>
+</div>

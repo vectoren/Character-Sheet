@@ -1,0 +1,22 @@
+<div class="equipment-container">
+  <h3>Equipment</h3>
+  <div class="equipment-table">
+    <div class="equipment-header">
+      <div class="col-name">Item Name</div>
+      <div class="col-price">Price</div>
+      <div class="col-amount">Amount</div>
+      <div class="col-weight">Weight</div>
+      <div class="col-action"></div>
+    </div>
+    <div class="equipment-rows">
+      <div *ngFor="let item of equipment; let i = index" class="equipment-row">
+        <input type="text" [(ngModel)]="item.name" placeholder="Item name" class="col-name" />
+        <input type="text" [(ngModel)]="item.price" placeholder="Price" class="col-price" />
+        <input type="number" [(ngModel)]="item.amount" min="0" class="col-amount" />
+        <input type="number" [(ngModel)]="item.weight" min="0" step="0.1" class="col-weight" />
+        <button (click)="removeItem(i)" class="remove-btn" *ngIf="equipment.length > 1">×</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="addItem()" class="add-btn">+ Add Item</button>
+</div>

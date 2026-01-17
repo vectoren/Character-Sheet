@@ -3,7 +3,11 @@
     <div class="armor-name-field">
       <label>ARMOR</label>
       <input type="text" [(ngModel)]="armorName" placeholder="Enter armor name">
+      <div class="ac-field">
+        <input type="number" [(ngModel)]="baseAC" min="10">
+      </div>
     </div>
+    
     <div class="ac-display">
       <span class="ac-label">AC</span>
       <span class="ac-value">{{ totalAC }}</span>
@@ -11,9 +15,6 @@
   </div>
 
   <div class="toggles-section">
-    <div class="ac-field">
-      <input type="number" [(ngModel)]="baseAC" min="10">
-    </div>
     <div class="toggle-row">
       <input type="checkbox" id="shield" [(ngModel)]="hasShield">
       <label for="shield">Shield (+2 AC)</label>

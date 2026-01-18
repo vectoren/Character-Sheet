@@ -13,7 +13,9 @@
             <div class="col col-name">NAME</div>
             <div class="col col-range">RANGE</div>
             <div class="col col-attack">ATTACK</div>
+            <div class="col-check">DEX/PROF</div>
             <div class="col col-damage">DAMAGE / TYPE</div>
+            <div class="col-action"></div>
         </div>
 
         <div class="attacks-rows">
@@ -26,21 +28,24 @@
                         <input type="text" [(ngModel)]="attack.damageDice" class="col col-attack"
                             placeholder="e.g. 1d8">
                         <span class="modifier">{{ getAttackModifier(attack) > 0 ? '+' : '' }}{{ getAttackModifier(attack) }}</span>
-                        <input type="checkbox" class="dex-checkbox" [(ngModel)]="attack.useDex"
-                            title="Use DEX modifier">
-                        <input type="checkbox" class="prof-checkbox" [(ngModel)]="attack.proficient"
-                            title="Proficient with this weapon">
+                        
                     </div>
+                    <div class="col-check">
+                            <input type="checkbox" class="dex-checkbox" [(ngModel)]="attack.useDex"
+                                title="Use DEX modifier">
+                            <input type="checkbox" class="prof-checkbox" [(ngModel)]="attack.proficient"
+                                title="Proficient with this weapon">
+                        </div>
                     <input type="text" class="col col-damage" [(ngModel)]="attack.damageType"
                         placeholder="e.g. Slashing">
+                        <button class="col-action remove-attack-btn" (click)="removeAttack($index)" title="Remove attack">
+                            X
+                        </button>
                     
                 </div>
                 <div class="properties-row" [class.even-row]="even">
                     <input type="text" [(ngModel)]="attack.properties" placeholder="Properties: Finesse, Light, etc">
                 </div>
-                <button class="remove-attack-btn" (click)="removeAttack($index)">
-                    Remove attack
-                </button>
             }
         </div>
     </div>

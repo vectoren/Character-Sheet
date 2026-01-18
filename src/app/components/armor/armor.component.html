@@ -2,9 +2,9 @@
   <div class="armor-header">
     <div class="armor-name-field">
       <label>ARMOR</label>
-      <input type="text" [(ngModel)]="armorName" placeholder="Enter armor name">
+      <input type="text" [(ngModel)]="character.armor.armorName" placeholder="Enter armor name">
       <div class="ac-field">
-        <input type="number" [(ngModel)]="baseAC" min="10">
+        <input type="number" [(ngModel)]="character.armor.baseAC" min="10">
       </div>
     </div>
     
@@ -16,11 +16,11 @@
 
   <div class="toggles-section">
     <div class="toggle-row">
-      <input type="checkbox" id="shield" [(ngModel)]="hasShield">
+      <input type="checkbox" id="shield" [(ngModel)]="character.armor.hasShield">
       <label for="shield">Shield (+2 AC)</label>
     </div>
     <div class="toggle-row">
-      <input type="checkbox" id="stealth" [(ngModel)]="stealthDisadvantage">
+      <input type="checkbox" id="stealth" [(ngModel)]="character.armor.isStealthDisadvantage">
       <label for="stealth">Stealth Disadvantage</label>
     </div>
   </div>

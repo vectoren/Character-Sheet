@@ -1,7 +1,7 @@
 <div class="attacks-container">
     <div class="attacks-top-section">
         <label class="attacks-label">ATTACKS</label>
-        <input type="text" class="attack-amount" placeholder="Attacks" value="1">
+        <input type="text" class="attack-amount" placeholder="Attacks" [(ngModel)]="character.attackAmount">
         <button class="add-attack-btn" (click)="addAttack()" [disabled]="attacks.length >= maxAttacks">
             Add attack
         </button>
@@ -22,21 +22,21 @@
             @for (attack of attacks; track $index; let even = $even) {
                 
                 <div class="attack-row" [class.even-row]="even">
-                    <input type="text" class="col col-name" [(ngModel)]="attack.name" placeholder="Weapon name">
+                    <input type="text" class="col col-name" [(ngModel)]="attack.weaponName" placeholder="Weapon name">
                     <input type="text" class="col col-range" [(ngModel)]="attack.range" placeholder="e.g. 5 ft">
                     <div class="col col-attack attack-modifier-cell">
-                        <input type="text" [(ngModel)]="attack.damageDice" class="col col-attack"
-                            placeholder="e.g. 1d8">
+                        <!-- <input type="text" [(ngModel)]="attack.attack" class="col col-attack"
+                            placeholder="e.g. 1d8"> -->
                         <span class="modifier">{{ getAttackModifier(attack) > 0 ? '+' : '' }}{{ getAttackModifier(attack) }}</span>
                         
                     </div>
                     <div class="col-check">
-                            <input type="checkbox" class="dex-checkbox" [(ngModel)]="attack.useDex"
+                            <input type="checkbox" class="dex-checkbox" [(ngModel)]="attack.isDex"
                                 title="Use DEX modifier">
-                            <input type="checkbox" class="prof-checkbox" [(ngModel)]="attack.proficient"
+                            <input type="checkbox" class="prof-checkbox" [(ngModel)]="attack.isProficient"
                                 title="Proficient with this weapon">
                         </div>
-                    <input type="text" class="col col-damage" [(ngModel)]="attack.damageType"
+                    <input type="text" class="col col-damage" [(ngModel)]="attack.damage"
                         placeholder="e.g. Slashing">
                         <button class="col-action remove-attack-btn" (click)="removeAttack($index)" title="Remove attack">
                             X

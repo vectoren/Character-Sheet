@@ -1,13 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface EquipmentItem {
-  name: string;
-  price: string;
-  amount: number;
-  weight: number;
-}
+import { SavingService } from '../../services/saving.service';
+import { Character, Equipment } from '../../models/character'; 
 
 @Component({
   selector: 'app-equipment',
@@ -16,12 +11,12 @@ interface EquipmentItem {
   styleUrl: './equipment.component.css'
 })
 export class EquipmentComponent {
-  equipment: EquipmentItem[] = [
-    { name: '', price: '', amount: 1, weight: 0 }
-  ];
+  service = inject(SavingService);
+  character: Character = this.service.character;
+  equipment: Equipment[] = this.character.equipment;
 
   addItem(): void {
-    this.equipment.push({ name: '', price: '', amount: 1, weight: 0 });
+    this.equipment.push({ itemName: '', price: '', amount: 1, weight: 0 });
   }
 
   removeItem(index: number): void {

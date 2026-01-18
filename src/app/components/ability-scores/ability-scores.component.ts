@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface Ability {
-  name: string;
-  score: number;
-}
+import { AbilityScores, Character } from '../../models/character';
+import { SavingService } from '../../services/saving.service';
 
 @Component({
   selector: 'app-ability-scores',
@@ -14,26 +11,21 @@ interface Ability {
   styleUrl: './ability-scores.component.css'
 })
 export class AbilityScoresComponent {
-  abilities: Ability[] = [
-    { name: 'STRENGTH', score: 10 },
-    { name: 'DEXTERITY', score: 10 },
-    { name: 'CONSTITUTION', score: 10 },
-    { name: 'INTELLIGENCE', score: 10 },
-    { name: 'WISDOM', score: 10 },
-    { name: 'CHARISMA', score: 10 }
-  ];
+  service = inject(SavingService);
+  character: Character = this.service.character;
+  abilities: AbilityScores[] = this.character.abilityScores;
 
   getModifier(score: number): number {
     return Math.floor((score - 10) / 2);
   }
 
-  increaseScore(ability: Ability): void {
+  increaseScore(ability: AbilityScores): void {
     if (ability.score < 20) {
       ability.score++;
     }
   }
 
-  decreaseScore(ability: Ability): void {
+  decreaseScore(ability: AbilityScores): void {
     if (ability.score > 3) {
       ability.score--;
     }

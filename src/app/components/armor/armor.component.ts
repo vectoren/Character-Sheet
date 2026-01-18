@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SavingService } from '../../services/saving.service';
+import { Character } from '../../models/character';
 
 @Component({
   selector: 'app-armor',
@@ -9,12 +11,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './armor.component.css'
 })
 export class ArmorComponent {
-  armorName: string = '';
-  baseAC: number = 10;
-  hasShield: boolean = false;
-  stealthDisadvantage: boolean = false;
+  service = inject(SavingService);
+  character: Character = this.service.character;
+  
 
   get totalAC(): number {
-    return this.baseAC + (this.hasShield ? 2 : 0);
+    return this.character.armor.baseAC + (this.character.armor.hasShield ? 2 : 0);
   }
 }

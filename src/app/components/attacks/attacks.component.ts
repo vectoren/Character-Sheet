@@ -1,16 +1,9 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, inject, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface Attack {
-  name: string;
-  range: string;
-  damageDice: string;
-  damageType: string;
-  properties: string;
-  useDex: boolean;
-  proficient: boolean;
-}
+import { Attacks, Character } from '../../models/character';
+import { InjectSetupWrapper } from '@angular/core/testing';
+import { SavingService } from '../../services/saving.service';
 
 @Component({
   selector: 'app-attacks',
@@ -19,6 +12,8 @@ interface Attack {
   styleUrl: './attacks.component.css'
 })
 export class AttacksComponent {
+  service = inject(SavingService);
+  character: Character = this.service.character;
   @Input() abilityModifiers: { [key: string]: number } = {
     'str': 0,
     'dex': 0,
@@ -29,19 +24,19 @@ export class AttacksComponent {
   };
   @Input() proficiency: number = 0; 
 
-  attacks: Attack[] = [];
+  attacks: Attacks[] = this.character.attacks;
   maxAttacks: number = 4;
 
   addAttack(): void {
     if (this.attacks.length < this.maxAttacks) {
       this.attacks.push({
-        name: '',
+        weaponName: '',
         range: '',
-        damageDice: '',
-        damageType: '',
+        // attack: '',
+        damage: '',
         properties: '',
-        useDex: false,
-        proficient: false
+        isDex: false,
+        isProficient: false
       });
     }
   }
@@ -50,7 +45,11 @@ export class AttacksComponent {
     this.attacks.splice(index, 1);
   }
 
-  getAttackModifier(attack: Attack): number {
-    return (attack.useDex ? this.abilityModifiers['dex'] : this.abilityModifiers['str']) + (attack.proficient ? this.proficiency : 0);
+  getAttackModifier(attack: Attacks): number {
+    return (attack.isDex ? this.abilityModifiers['dex'] : this.abilityModifiers['str']) + (attack.isProficient ? this.proficiency : 0);
+  }
+
+  getDamageModifier(attack: Attacks): number{
+    return (attack.isDex ? this.abilityModifiers['dex'] : this.abilityModifiers['str'])
   }
 }

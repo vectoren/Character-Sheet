@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SavingService } from '../../services/saving.service';
+import { Character, DEFAULT_CHARACTER } from '../../models/character';
 
 interface ProficiencyLevel{
     level: number;
@@ -13,7 +15,9 @@ interface ProficiencyLevel{
   templateUrl: './basic-info.component.html',
   styleUrl: './basic-info.component.css'
 })
-export class BasicInfoComponent {
+export class BasicInfoComponent{
+    service = inject(SavingService);
+    character: Character = this.service.character;
     characterLevel: number = 1; 
     proficiencyTable: ProficiencyLevel[] = [
         { level: 1, experiencePoints: 0, proficiencyBonus: 2 },
@@ -37,9 +41,44 @@ export class BasicInfoComponent {
         { level: 19, experiencePoints: 305000, proficiencyBonus: 6 },
         { level: 20, experiencePoints: 355000, proficiencyBonus: 6 }
     ];
-
+    
     get proficiency(): number {
-        const levelData = this.proficiencyTable.find(entry => entry.level === this.characterLevel);
+        const levelData = this.proficiencyTable.find(entry => entry.level === this.character.characterLevel);
         return levelData ? levelData.proficiencyBonus : 2;
     }
+
+    file = signal<any>('');
+
+    getFile() {
+        console.log(this.file);
+    }
+
+    
+    saveCharacter(){
+        this.service.save(this.character);
+    }
+    
+    onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      // Co ma się stać, gdy plik zostanie wczytany
+      reader.onload = (e: any) => {
+        try {
+          const content = e.target.result;
+         
+          this.service.load(content)
+          this.character = this.service.character;
+
+        } catch (error) {
+          console.error('Błąd: Wybrany plik nie jest poprawnym formatem JSON', error);
+        }
+      };
+
+      // Rozpoczęcie odczytu pliku jako tekst
+      reader.readAsText(file);
+    }
+  }
 }

@@ -2,21 +2,21 @@
     <div class="top-row">
         <div class="character-name">
             <label>CHARACTER NAME</label>
-            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Name" [(ngModel)]="character.characterName">
         </div>
         <div class="level-section">
             <div class="level-inputs">
                 <div class="level-field">
                     <span class="level-label">LEVEL</span>
-                    <input type="number" [(ngModel)]="characterLevel" min="1" max="20">
+                    <input type="number" [(ngModel)]="character.characterLevel" min="1" max="20">
                 </div>
                 <div class="class-field">
                     <span class="class-label">CLASS</span>
-                    <input type="text" placeholder="Class">
+                    <input type="text" placeholder="Class" [(ngModel)]="character.characterClass">
                 </div>
                 <div class="race-field">
                     <span class="race-label">RACE</span>
-                    <input type="text" placeholder="Race">
+                    <input type="text" placeholder="Race" [(ngModel)]="character.characterRace">
                 </div>
             </div>
         </div>
@@ -28,17 +28,20 @@
     <div class="details-row">
         <label class="field">
             <span>BACKGROUND</span>
-            <input type="text">
+            <input type="text" [(ngModel)]="character.background">
         </label>
         <label class="field">
-            <button>SAVE CHARACTER</button>
+            <button (click)="saveCharacter()">SAVE CHARACTER</button>
         </label>
         <label class="field">
-            <button>IMPORT CHARACTER</button>
+            <button type="button">
+                <label for="fileInput">IMPORT CHARACTER</label>
+            </button>
+             <input style="display: none;" id="fileInput" type="file" accept=".json" [(ngModel)]="file" (change)="onFileSelected($event)">
         </label>
         <label class="field">
             <span>PLAYER NAME</span>
-            <input type="text">
+            <input type="text" [(ngModel)]="character.playerName">
         </label>
     </div>
 </main>

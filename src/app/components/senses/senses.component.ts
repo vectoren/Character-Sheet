@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SavingService } from '../../services/saving.service';
+import { Character } from '../../models/character';
 
 @Component({
   selector: 'app-senses',
@@ -9,7 +11,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './senses.component.css'
 })
 export class SensesComponent {
-  vision: string = '';
-  inspiration: string = "";
-  exhaustion: number = 0;
+  service = inject(SavingService);
+  character: Character = this.service.character;
 }

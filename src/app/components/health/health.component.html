@@ -3,12 +3,12 @@
         <div class="health-hp-section">
             <div class="hp-field">
                 <label>CURRENT HP</label>
-                <input type="number" [(ngModel)]="currentHP" placeholder="0">
+                <input type="number" [(ngModel)]="character.health.currentHP" placeholder="0">
             </div>
             <span class="hp-separator">/</span>
             <div class="hp-field">
                 <label>MAX HP</label>
-                <input type="number" [(ngModel)]="maxHP" placeholder="0">
+                <input type="number" [(ngModel)]="character.health.maxHP" placeholder="0">
             </div>
         </div>
     </div>
@@ -16,11 +16,11 @@
         <div class="additional-section">
             <div class="temp-hp-field">
                 <label>TEMPORARY HP</label>
-                <input type="number" [(ngModel)]="temporaryHP" placeholder="0">
+                <input type="number" [(ngModel)]="character.health.tempHP" placeholder="0">
             </div>
             <div class="hit-dice-field">
                 <label>HIT DICE</label>
-                <input type="text" [(ngModel)]="hitDice" placeholder="e.g. 1d8">
+                <input type="text" [(ngModel)]="character.health.hitDice" placeholder="e.g. 1d8">
             </div>
         </div>
 

@@ -1,13 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Skill {
-  name: string;
-  ability: string;
-  abilityKey: string;
-  proficient: boolean;
-  expert: boolean;
-}
+import { Character, SkillProficiencies } from '../../models/character';
+import { SavingService } from '../../services/saving.service';
 
 @Component({
   selector: 'app-skills',
@@ -16,6 +10,8 @@ interface Skill {
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
+  service = inject(SavingService);
+  character: Character = this.service.character;
   @Input() abilityModifiers: { [key: string]: number } = {
     'str': 0,
     'dex': 0,
@@ -26,7 +22,8 @@ export class SkillsComponent {
   };
   @Input() proficiencyBonus: number = 2;
 
-  skills: Skill[] = [
+  skills: SkillProficiencies[] = this.character.skillProficiencies;
+  skille = [
     { name: 'Acrobatics', ability: 'Dex', abilityKey: 'dex', proficient: false, expert: false },
     { name: 'Animal Handling', ability: 'Wis', abilityKey: 'wis', proficient: false, expert: false },
     { name: 'Arcana', ability: 'Int', abilityKey: 'int', proficient: false, expert: false },
@@ -47,7 +44,7 @@ export class SkillsComponent {
     { name: 'Survival', ability: 'Wis', abilityKey: 'wis', proficient: false, expert: false }
   ];
 
-  getSkillModifier(skill: Skill): number {
+  getSkillModifier(skill: SkillProficiencies): number {
     const abilityMod = this.abilityModifiers[skill.abilityKey] || 0;
     if (skill.expert) {
       return abilityMod + (this.proficiencyBonus * 2);
@@ -57,7 +54,7 @@ export class SkillsComponent {
     return abilityMod;
   }
 
-  toggleProficiency(skill: Skill): void {
+  toggleProficiency(skill: SkillProficiencies): void {
     if (skill.expert) {
       skill.expert = false;
       skill.proficient = true;
@@ -68,7 +65,7 @@ export class SkillsComponent {
     }
   }
 
-  toggleExpert(skill: Skill): void {
+  toggleExpert(skill: SkillProficiencies): void {
     skill.expert = !skill.expert;
     if (skill.expert) {
       skill.proficient = false;

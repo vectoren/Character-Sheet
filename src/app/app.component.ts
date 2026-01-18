@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BasicInfoComponent } from './components/basic-info/basic-info.component';
 import { AbilityScoresComponent } from './components/ability-scores/ability-scores.component';
 import { SkillsComponent } from './components/skills/skills.component';

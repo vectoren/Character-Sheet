@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SavingService } from '../../services/saving.service';
+import { Character } from '../../models/character';
 
 @Component({
   selector: 'app-proficiencies',
@@ -9,8 +11,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './proficiencies.component.css'
 })
 export class ProficienciesComponent {
-  armorProficiencies: string = '';
-  weaponProficiencies: string = '';
-  toolProficiencies: string = '';
-  knownLanguages: string = '';
+  service = inject(SavingService);
+  character: Character = this.service.character;
 }

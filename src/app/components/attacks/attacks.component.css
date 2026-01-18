@@ -66,7 +66,7 @@
 
 .attacks-header-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 45px 1.5fr 40px;
+    grid-template-columns: 1fr 1fr 1fr 45px 1.6fr 40px;
     gap: 0;
     background-color: #1d1d1d;
     border-bottom: 1px solid #f2f2f2;
@@ -89,7 +89,7 @@
 
 .attack-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 45px 1.5fr 40px;
+    grid-template-columns: 1fr 1fr 1fr 45px 1.6fr 40px;
     gap: 0;
     border-bottom: 1px solid #444;
     transition: background-color 0.2s ease;
@@ -183,6 +183,7 @@
 .col-damage {
     min-width: 150px;
 }
+
 
 .col-check{
     min-width: 45px;

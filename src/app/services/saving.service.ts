@@ -16,7 +16,7 @@ export class SavingService {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'character.json';
+    a.download = obj.characterName != '' ? `${obj.characterName}.json` : 'character.json';
     document.body.appendChild(a);
     a.click();
     a.remove();

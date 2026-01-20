@@ -1,4 +1,8 @@
 <div class="skills-container">
+    <div class="passive-perception-label">
+        <span class="skill-name">Passive Perception: </span>
+        <span class="skill-modifier">{{passivePerception}}</span>
+    </div>
     <div class="skills-label">SKILLS</div>
     <div class="skills-list">
         <div class="skill-row" *ngFor="let skill of skills; let even = even" [class.even-row]="even">

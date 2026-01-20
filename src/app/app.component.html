@@ -1,4 +1,4 @@
-<app-basic-info #basicInfo></app-basic-info>
+<app-basic-info #basicInfo [abilityModifiers]="abilityScores.getAbilityModifiers()"></app-basic-info>
 <app-ability-scores #abilityScores></app-ability-scores>
 <div class="main-container">
     <app-skills [proficiencyBonus]="basicInfo.proficiency" [abilityModifiers]="abilityScores.getAbilityModifiers()"></app-skills>

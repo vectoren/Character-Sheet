@@ -22,6 +22,11 @@ export class SkillsComponent {
   };
   @Input() proficiencyBonus: number = 2;
 
+
+  get passivePerception(){
+    return 10 + this.getSkillModifier(this.skills[11]);
+  }
+
   skills: SkillProficiencies[] = this.character.skillProficiencies;
   skille = [
     { name: 'Acrobatics', ability: 'Dex', abilityKey: 'dex', proficient: false, expert: false },

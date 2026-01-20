@@ -31,17 +31,24 @@
             <input type="text" [(ngModel)]="character.background">
         </label>
         <label class="field">
-            <button (click)="saveCharacter()">SAVE CHARACTER</button>
-        </label>
-        <label class="field">
-            <button type="button">
-                <label for="fileInput">IMPORT CHARACTER</label>
-            </button>
-             <input style="display: none;" id="fileInput" type="file" accept=".json" [(ngModel)]="file" (change)="onFileSelected($event)">
-        </label>
-        <label class="field">
             <span>PLAYER NAME</span>
             <input type="text" [(ngModel)]="character.playerName">
         </label>
+        <label class="field">
+            <button (click)="saveCharacter()">SAVE CHARACTER</button>
+            <button type="button">
+                <label for="fileInput" style="cursor: pointer;">IMPORT CHARACTER</label>
+            </button>
+             <input style="display: none;" id="fileInput" type="file" accept=".json" [(ngModel)]="file" (change)="onFileSelected($event)">
+        </label>
+        <div class="initiative-section">
+            <span class="initiative-label">INITIATIVE</span>
+            <div style="display: flex;">
+                <span class="initiative-value">+{{initiative}}</span>
+                <span class="initiative-alert">
+                    <input type="checkbox" [(ngModel)]="isFeatAlert">
+                </span>
+            </div>
+        </div>
     </div>
 </main>

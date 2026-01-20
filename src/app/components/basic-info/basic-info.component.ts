@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SavingService } from '../../services/saving.service';
 import { Character, DEFAULT_CHARACTER } from '../../models/character';
@@ -41,12 +41,24 @@ export class BasicInfoComponent{
         { level: 19, experiencePoints: 305000, proficiencyBonus: 6 },
         { level: 20, experiencePoints: 355000, proficiencyBonus: 6 }
     ];
-    
     get proficiency(): number {
-        const levelData = this.proficiencyTable.find(entry => entry.level === this.character.characterLevel);
-        return levelData ? levelData.proficiencyBonus : 2;
+      const levelData = this.proficiencyTable.find(entry => entry.level === this.character.characterLevel);
+      return levelData ? levelData.proficiencyBonus : 2;
     }
+    
+    @Input() abilityModifiers: { [key: string]: number } = {
+      'str': 0,
+      'dex': 0,
+      'con': 0,
+      'int': 0,
+      'wis': 0,
+      'cha': 0
+    };
+    isFeatAlert: boolean = false;
 
+    get initiative(): number {
+      return this.isFeatAlert ? this.abilityModifiers['dex'] + this.proficiency : this.abilityModifiers['dex'];
+    };
     file = signal<any>('');
 
     getFile() {

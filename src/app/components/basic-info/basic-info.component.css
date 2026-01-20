@@ -95,7 +95,7 @@ main {
     border-bottom: 2px solid #f2f2f2;
 }
 
-.proficiency-section {
+.proficiency-section, .initiative-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,14 +106,14 @@ main {
     background-color: #1d1d1d;
 }
 
-.proficiency-label {
+.proficiency-label, .initiative-label {
     font-size: 0.7rem;
     font-weight: bold;
     letter-spacing: 0.05em;
     color: #f2f2f2;
 }
 
-.proficiency-value {
+.proficiency-value, .initiative-value {
     font-size: 1.5rem;
     font-weight: bold;
     color: #f2f2f2;
@@ -121,7 +121,7 @@ main {
 
 .details-row {
     display: flex;
-    gap: 1rem;
+    gap: 0.7rem;
     flex-wrap: wrap;
 }
 

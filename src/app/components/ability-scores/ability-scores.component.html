@@ -3,13 +3,11 @@
         <span class="ability-name">{{ ability.name }}</span>
         <div class="ability-content">
             <span class="modifier">{{ getModifier(ability.score) > 0 ? '+' : '' }}{{ getModifier(ability.score)}}</span>
-            <div class="score-controls">
-                <span class="score">{{ ability.score }}</span>
-                <div>
-                    <button class="btn-increase" (click)="increaseScore(ability)">+</button>
-                    <button class="btn-decrease" (click)="decreaseScore(ability)">−</button>
-                </div>
-            </div>
+            <span class="score">{{ ability.score }}</span>
+        </div>
+        <div class="score-controls">
+            <button class="btn-decrease" (click)="decreaseScore(ability)">−</button>
+            <button class="btn-increase" (click)="increaseScore(ability)">+</button>
         </div>
     </div>
 </div>
